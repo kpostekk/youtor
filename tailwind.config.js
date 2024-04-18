@@ -14,6 +14,10 @@ module.exports = {
           "background-hover": "hsl(var(--btn-background-hover))",
         },
       },
+      fontFamily: {
+        sans: ["var(--font-inter)"],
+        eepy: ["var(--font-itim)"],
+      },
     },
   },
   plugins: [],
