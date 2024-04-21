@@ -9,16 +9,22 @@ export default async function YouLearningSessionPage(props: {
   // get the id from the url
   const { id } = props.params
 
-  const result = await supabase
+  const learningSession = await supabase
     .from("learning_sessions")
     .select()
     .filter("id", "eq", id)
     .single()
 
+  const chapters = await supabase
+    .from("learning_chapters")
+    .select()
+    .filter("learning_session_id", "eq", id)
+
   return (
     <>
-      <h1 className="text-5xl font-bold">{result.data?.prompt}</h1>
-      <p>{result.data?.summary}</p>
+      <h1 className="text-5xl font-bold">{learningSession.data?.prompt}</h1>
+      <p>{learningSession.data?.summary}</p>
+      {!chapters.count && <p>No chapters available yet! Please wait...</p>}
     </>
   )
 }

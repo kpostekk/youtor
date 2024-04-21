@@ -1,10 +1,10 @@
 import { createClient } from "@/utils/supabase/server"
 import { redirect } from "next/navigation"
-import { PropsWithChildren } from "react"
+import { PropsWithChildren, Suspense } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { SessionButton } from "@/components/SessionButton"
-import { FaPlus } from "react-icons/fa6"
+import { FaPlus, FaSpinner } from "react-icons/fa6"
 
 /**
  * Check if the user is authenticated
@@ -47,9 +47,11 @@ export default async function YouLayout(props: PropsWithChildren) {
             </button>
           </div>
           <p className="opacity-25 px-1">Your recent sessions</p>
-          {recentSessions.data?.map((r) => (
-            <SessionButton key={r.id} session={r} />
-          ))}
+          <Suspense>
+            {recentSessions.data?.map((r) => (
+              <SessionButton key={r.id} session={r} />
+            ))}
+          </Suspense>
           {/* {JSON.stringify(recentSessions.data)} */}
         </div>
         <div className="flex items-center w-full gap-4">
@@ -67,7 +69,9 @@ export default async function YouLayout(props: PropsWithChildren) {
           </form>
         </div>
       </div>
-      <div className="p-8">{props.children}</div>
+      <div className="p-8">
+        <Suspense>{props.children}</Suspense>
+      </div>
     </div>
   )
 }
