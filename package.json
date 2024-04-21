@@ -3,7 +3,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "format": "prettier -w app ./components ./utils *.ts *.js"
   },
   "dependencies": {
     "@supabase/ssr": "latest",

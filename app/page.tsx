@@ -9,12 +9,13 @@ export default async function Index() {
       <div className="flex justify-end">
         <Image src={Flashcards} alt="" />
       </div>
-      <div className="space-y-8 my-24 -translate-x-4">
+      <div className="grid place-content-start gap-6 translate-y-8 -translate-x-9">
         <h1 className="font-bold font-eepy text-6xl">YOUtor</h1>
-        <div>
+        <p>learn anything in minutes</p>
+        <div className="flex">
           <Link
-            href="/login"
             className="border bg-emerald-900 border-emerald-500 rounded-xl py-2 px-4 font-medium"
+            href="/login"
           >
             Get Started
           </Link>

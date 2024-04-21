@@ -2,18 +2,19 @@
 import { headers } from "next/headers"
 import { createClient } from "@/utils/supabase/server"
 import { redirect } from "next/navigation"
+import { FaDiscord } from "react-icons/fa6"
 // import { SubmitButton } from "./submit-button"
 // import { defaultUrl } from "@/utils/url"
 
 export default async function Login() {
   const signIn = async () => {
-    'use server'
+    "use server"
 
     const supabase = createClient()
     const origin = headers().get("origin")
 
     const { data } = await supabase.auth.signInWithOAuth({
-      provider: 'discord',
+      provider: "discord",
       options: {
         scopes: "identify email",
         redirectTo: `${origin}/auth/callback`,
@@ -29,12 +30,12 @@ export default async function Login() {
 
   return (
     <div className="h-screen grid place-items-center">
-      <form>
+      <form className="grid place-items-center p-16 border border-white/25 rounded-lg bg-white/5">
         <button
           formAction={signIn}
-          className="border bg-emerald-900 border-emerald-500 rounded-xl py-2 px-4 font-medium"
+          className="border bg-emerald-900 border-emerald-500 rounded-xl py-2 px-4 font-medium flex items-center gap-2"
         >
-          Sign in with Discord
+          <FaDiscord /> Sign in with Discord
         </button>
       </form>
     </div>
