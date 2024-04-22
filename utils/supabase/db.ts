@@ -15,18 +15,21 @@ export type Database = {
           createdAt: string
           id: string
           lsId: string
+          title: string
         }
         Insert: {
           content: string
           createdAt?: string
           id?: string
           lsId: string
+          title: string
         }
         Update: {
           content?: string
           createdAt?: string
           id?: string
           lsId?: string
+          title?: string
         }
         Relationships: [
           {
