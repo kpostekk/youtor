@@ -9,6 +9,8 @@ export default async function YouLearningSessionPage(props: {
   // get the id from the url
   const { id } = props.params
 
+  await supabase.auth.getUser()
+
   const learningSession = await supabase
     .from("learning_sessions")
     .select()
