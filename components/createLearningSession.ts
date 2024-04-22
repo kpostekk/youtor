@@ -33,8 +33,6 @@ export async function createLearningSession(formData: FormData) {
         // learning_session_id: data.id,
       })
       .single()
-
-    // console.log(x)
   }
 
   redirect(`/you/${data.id}`)

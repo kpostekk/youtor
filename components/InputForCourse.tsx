@@ -8,7 +8,7 @@ import { createLearningSession } from "./createLearningSession"
 
 export default function InputForCourse() {
   const client = useClient()
-  console.log({ client })
+
   const [course, setCourse] = useState("")
   const canSubmit = useMemo(() => course.length > 5, [course])
 
