@@ -18,7 +18,7 @@ export default function InputForCourse() {
         name="sessionTopic"
         value={course}
         onChange={(e) => setCourse(e.target.value)}
-        className="appearance-none bg-transparent border-b-2 border-emerald-900 duration-200 focus:border-emerald-500 grow outline-none"
+        className="appearance-none bg-transparent border-b-2 border-sky-900 duration-200 focus:border-sky-500 grow outline-none"
         placeholder="What is an eventloop in JavaScript?"
         // onSubmit={() => alert("submitted")}
       />
@@ -26,7 +26,7 @@ export default function InputForCourse() {
         formAction={createLearningSession}
         className={classNames(
           "duration-200 absolute top-0 h-full right-24 grid place-items-center",
-          canSubmit ? "text-emerald-500" : "text-transparent -rotate-180",
+          canSubmit ? "text-sky-500" : "text-transparent -rotate-180",
         )}
       >
         <FaArrowRight />

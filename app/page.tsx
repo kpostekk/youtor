@@ -14,7 +14,7 @@ export default async function Index() {
         <p>learn anything in minutes</p>
         <div className="flex">
           <Link
-            className="border bg-emerald-900 border-emerald-500 rounded-xl py-2 px-4 font-medium"
+            className="border bg-sky-900 border-sky-500 rounded-xl py-2 px-4 font-medium"
             href="/login"
           >
             Get Started

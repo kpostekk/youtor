@@ -33,7 +33,7 @@ export default async function Login() {
       <form className="grid place-items-center p-16 border border-white/25 rounded-lg bg-white/5">
         <button
           formAction={signIn}
-          className="border bg-emerald-900 border-emerald-500 rounded-xl py-2 px-4 font-medium flex items-center gap-2"
+          className="border bg-sky-900 border-sky-500 rounded-xl py-2 px-4 font-medium flex items-center gap-2"
         >
           <FaDiscord /> Sign in with Discord
         </button>

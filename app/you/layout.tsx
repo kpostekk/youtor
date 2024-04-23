@@ -32,7 +32,7 @@ export default async function YouLayout(props: PropsWithChildren) {
   }
 
   return (
-    <div className="grid grid-cols-[22rem_auto] h-screen bg-gradient-to-bl from-black to-emerald-950/25">
+    <div className="grid grid-cols-[22rem_auto] h-screen bg-gradient-to-bl from-black to-sky-950/25">
       <div className="bg-white/5 backdrop-blur-lg grid grid-cols-1 grid-rows-[auto_1fr_auto] p-6 border-r border-white/25">
         <div>
           <h1 className="text-4xl font-eepy">YOUtor</h1>

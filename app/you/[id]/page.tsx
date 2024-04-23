@@ -31,9 +31,9 @@ export default async function YouLearningSessionPage(props: {
       <p>{learningSession.data?.summary}</p>
       {!chapters.data?.length && <p>No chapters available yet! Please wait...</p>}
       {chapters.data?.map((chapter) => (
-        <div className="my-10 border border-emerald-800 rounded-xl p-4" key={chapter.id}>
+        <div className="my-10 border border-sky-800 rounded-xl p-4" key={chapter.id}>
           <h2 className="text-3xl mb-2">{chapter.title}</h2>
-          <hr className="border border-emerald-800 my-4" />
+          <hr className="border border-sky-800 my-4" />
           <p>{chapter.content}</p>
         </div>
       ))}
