@@ -11,7 +11,7 @@ export default function Videosona(props: { src: string }) {
     //   ref.current.src = props.src
     // }
     ref.current?.play()
-    ref.current!.playbackRate = 5.5
+    ref.current!.playbackRate = 1.1
 
     // when video stops, hide the video
     ref.current?.addEventListener("ended", () => {
