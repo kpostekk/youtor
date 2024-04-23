@@ -5,6 +5,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { SessionButton } from "@/components/SessionButton"
 import { FaPlus, FaSpinner } from "react-icons/fa6"
+import Logolike from '../../images/logolike.png'
 
 /**
  * Check if the user is authenticated
@@ -20,6 +21,7 @@ export default async function YouLayout(props: PropsWithChildren) {
 
   if (!user.data.user) {
     redirect("login")
+
     // return null
   }
 
@@ -32,10 +34,10 @@ export default async function YouLayout(props: PropsWithChildren) {
   }
 
   return (
-    <div className="grid grid-cols-[22rem_auto] h-screen bg-gradient-to-bl from-black to-emerald-950/25">
-      <div className="bg-white/5 backdrop-blur-lg grid grid-cols-1 grid-rows-[auto_1fr_auto] p-6 border-r border-white/25">
+    <div className="grid grid-cols-[22rem_auto] h-screen bg-black">
+      <div className="bg-black grid grid-cols-1 grid-rows-[auto_1fr_auto] p-6 border-r border-white/25">
         <div>
-          <h1 className="text-4xl font-eepy">YOUtor</h1>
+          <Image src={Logolike} alt="logo" />
         </div>
         <div className="py-4">
           <div className="flex p-1 w-full hover:bg-white/10 rounded-lg mb-2">

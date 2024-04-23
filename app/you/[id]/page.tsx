@@ -1,7 +1,7 @@
 import { createClient } from "@/utils/supabase/server"
 import { useParams } from "next/navigation"
-import Image from 'next/image'
-import Finguy from '../../../images/finguy.png'
+import Image from "next/image"
+import Finguy from "../../../images/img-fQoESIftyKS0dolHl0WejY6I.png"
 
 export default async function YouLearningSessionPage(props: {
   params: { id: string }
@@ -26,12 +26,28 @@ export default async function YouLearningSessionPage(props: {
 
   return (
     <>
-      <Image src={Finguy} alt="Finguy" width={200} height={200} className="absolute rounded-lg right-6 top-6" />
-      <h1 className="text-5xl font-bold">{learningSession.data?.prompt}</h1>
+      {/* <Image src={Finguy} alt="Finguy" width={200} height={200} className="absolute rounded-lg right-6 top-6" /> */}
+      <div className="flex w-full justify-center mb-12">
+        <div>
+          <Image
+            src={Finguy}
+            alt="Finguy"
+            width={300}
+            height={300}
+            className="rounded-lg"
+          />
+        </div>
+      </div>
+      <h1 className="text-5xl font-bold text-center">{learningSession.data?.prompt}</h1>
       <p>{learningSession.data?.summary}</p>
-      {!chapters.data?.length && <p>No chapters available yet! Please wait...</p>}
+      {!chapters.data?.length && (
+        <p>No chapters available yet! Please wait...</p>
+      )}
       {chapters.data?.map((chapter) => (
-        <div className="my-10 border border-emerald-800 rounded-xl p-4" key={chapter.id}>
+        <div
+          className="my-10 border border-emerald-800 rounded-xl p-4"
+          key={chapter.id}
+        >
           <h2 className="text-3xl mb-2">{chapter.title}</h2>
           <hr className="border border-emerald-800 my-4" />
           <p>{chapter.content}</p>

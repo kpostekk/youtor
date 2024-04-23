@@ -1,11 +1,12 @@
-import { Inter, Itim } from "next/font/google"
+import { Inter, Itim, IBM_Plex_Sans } from "next/font/google"
 import "./globals.css"
 import classNames from "classnames"
 
 // If loading a variable font, you don't need to specify the font weight
-const inter = Inter({
+const inter = IBM_Plex_Sans({
   subsets: ["latin"],
-  display: "swap",
+  // display: "swap",
+  weight: ["400", "500", "600", "700"],
   variable: "--font-inter",
 })
 
