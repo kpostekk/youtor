@@ -69,7 +69,7 @@ export default async function YouLayout(props: PropsWithChildren) {
           </form>
         </div>
       </div>
-      <div className="p-8">
+      <div className="p-8 overflow-auto">
         <Suspense>{props.children}</Suspense>
       </div>
     </div>
