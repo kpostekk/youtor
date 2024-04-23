@@ -27,8 +27,12 @@ export async function createLearningSession(formData: FormData) {
 
   if (!data) throw error
 
+
+  const url = new URL("https://lips-prozac-knock-cornwall.trycloudflare.com/prompt")
+  url.searchParams.set("idp", data.id)
   // create a quiz prompt
-  await fetch("https://lips-prozac-knock-cornwall.trycloudflare.com/prompt?id=" + data.id)
+  const result = await fetch(url)
+  console.log(await result.text())
 
   redirect(`/you/${data.id}`)
 
