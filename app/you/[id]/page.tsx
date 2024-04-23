@@ -4,6 +4,7 @@ import Image from "next/image"
 import Finguy from "../../../images/img-fQoESIftyKS0dolHl0WejY6I.png"
 import { FaArrowRight } from "react-icons/fa6"
 import Link from "next/link"
+import Videosona from "@/components/videosona"
 
 export default async function YouLearningSessionPage(props: {
   params: { id: string }
@@ -40,6 +41,7 @@ export default async function YouLearningSessionPage(props: {
           />
         </div>
       </div> */}
+      <Videosona src="" />
       <div className="container mx-auto my-48">
         <h1 className="text-5xl font-bold">{learningSession.data?.prompt}</h1>
 
