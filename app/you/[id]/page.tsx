@@ -22,10 +22,10 @@ export default async function YouLearningSessionPage(props: {
     .filter("id", "eq", id)
     .single()
 
-  const chapters = await supabase
-    .from("learning_chapters")
-    .select()
-    .filter("lsId", "eq", id)
+  // const chapters = await supabase
+  //   .from("learning_chapters")
+  //   .select()
+  //   .filter("lsId", "eq", id)
 
   return (
     <>
@@ -41,7 +41,7 @@ export default async function YouLearningSessionPage(props: {
           />
         </div>
       </div> */}
-      <Videosona src="" />
+      <Videosona src={learningSession.data!.video_url!} />
       <div className="container mx-auto my-48">
         <h1 className="text-5xl font-bold">{learningSession.data?.prompt}</h1>
 

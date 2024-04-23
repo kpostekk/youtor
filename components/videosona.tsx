@@ -29,7 +29,8 @@ export default function Videosona(props: { src: string }) {
         <video
           ref={ref}
           src={
-            "https://xlexbirabqfeuqressbx.supabase.co/storage/v1/object/public/tutor_pfps/1713862313244.mp4"
+            // "https://xlexbirabqfeuqressbx.supabase.co/storage/v1/object/public/tutor_pfps/1713862313244.mp4"
+            props.src
           }
           autoPlay
           className="rounded-full"

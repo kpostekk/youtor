@@ -52,6 +52,7 @@ export type Database = {
           quiz_prompt: string | null
           summary: string | null
           teacher_prompt: string | null
+          video_url: string | null
         }
         Insert: {
           authorId?: string
@@ -63,6 +64,7 @@ export type Database = {
           quiz_prompt?: string | null
           summary?: string | null
           teacher_prompt?: string | null
+          video_url?: string | null
         }
         Update: {
           authorId?: string
@@ -74,6 +76,7 @@ export type Database = {
           quiz_prompt?: string | null
           summary?: string | null
           teacher_prompt?: string | null
+          video_url?: string | null
         }
         Relationships: [
           {
