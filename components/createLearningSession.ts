@@ -5,7 +5,7 @@ import { redirect } from "next/navigation"
 import { fakerPL } from '@faker-js/faker'
 import { createSuperClient } from "@/utils/supabase/super"
 
-export async function createLearningSession(formData: FormData) {
+export async﻿ function createLearningSession(formData: FormData) {
   if (!formData.get("sessionTopic")) {
     throw new Error("You need to provide a topic")
   }
@@ -24,7 +24,7 @@ export async function createLearningSession(formData: FormData) {
 
   // fake chapter generation
   for (let i = 0; i < 5; i++) {
-    await createSuperClient()
+    const {error} = await createSuperClient()
       .from("learning_chapters")
       .insert({
         lsId: data.id,
@@ -33,6 +33,8 @@ export async function createLearningSession(formData: FormData) {
         // learning_session_id: data.id,
       })
       .single()
+
+      if (error) console.error(error)
   }
 
   redirect(`/you/${data.id}`)
