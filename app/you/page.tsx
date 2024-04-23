@@ -1,5 +1,7 @@
 import InputForCourse from "@/components/InputForCourse"
 import { createClient } from "@/utils/supabase/server"
+import Image from "next/image"
+import Logolike from "../../images/logolike.png"
 
 export default async function YouPage() {
   const supabase = createClient()

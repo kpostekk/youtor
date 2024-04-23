@@ -35,11 +35,11 @@ export default async function YouLayout(props: PropsWithChildren) {
 
   return (
     <div className="grid grid-cols-[22rem_auto] h-screen bg-black">
-      <div className="bg-black grid grid-cols-1 grid-rows-[auto_1fr_auto] p-6 border-r border-white/25">
+      <div className="bg-black grid grid-cols-1 grid-rows-[auto_1fr_auto] border-r border-white/25">
         <div>
           <Image src={Logolike} alt="logo" />
         </div>
-        <div className="py-4">
+        <div className="py-4 px-6">
           <div className="flex p-1 w-full hover:bg-white/10 rounded-lg mb-2">
             <Link href={`/you`} className="grow text-lg truncate">
               New
@@ -56,7 +56,7 @@ export default async function YouLayout(props: PropsWithChildren) {
           </Suspense>
           {/* {JSON.stringify(recentSessions.data)} */}
         </div>
-        <div className="flex items-center w-full gap-4">
+        <div className="flex items-center w-full gap-4 px-6 pb-5">
           <Image
             width={32}
             height={32}
@@ -71,7 +71,7 @@ export default async function YouLayout(props: PropsWithChildren) {
           </form>
         </div>
       </div>
-      <div className="p-8 overflow-auto">
+      <div className="overflow-auto">
         <Suspense>{props.children}</Suspense>
       </div>
     </div>
