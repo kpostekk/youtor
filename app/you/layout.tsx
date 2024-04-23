@@ -34,10 +34,10 @@ export default async function YouLayout(props: PropsWithChildren) {
   }
 
   return (
-    <div className="grid grid-cols-[22rem_auto] h-screen bg-black">
+    <div className="grid grid-cols-[28rem_auto] h-screen bg-black">
       <div className="bg-black grid grid-cols-1 grid-rows-[auto_1fr_auto] border-r border-white/25">
         <div>
-          <Image src={Logolike} alt="logo" />
+          {/* <Image src={Logolike} alt="logo" /> */}
         </div>
         <div className="py-4 px-6">
           <div className="flex p-1 w-full hover:bg-white/10 rounded-lg mb-2">

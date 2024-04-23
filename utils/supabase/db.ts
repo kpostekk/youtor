@@ -45,23 +45,35 @@ export type Database = {
         Row: {
           authorId: string
           createdAt: string
+          google_prompt: string | null
           id: string
+          introduction_prompt: string | null
           prompt: string
+          quiz_prompt: string | null
           summary: string | null
+          teacher_prompt: string | null
         }
         Insert: {
           authorId?: string
           createdAt?: string
+          google_prompt?: string | null
           id?: string
+          introduction_prompt?: string | null
           prompt: string
+          quiz_prompt?: string | null
           summary?: string | null
+          teacher_prompt?: string | null
         }
         Update: {
           authorId?: string
           createdAt?: string
+          google_prompt?: string | null
           id?: string
+          introduction_prompt?: string | null
           prompt?: string
+          quiz_prompt?: string | null
           summary?: string | null
+          teacher_prompt?: string | null
         }
         Relationships: [
           {
@@ -69,6 +81,151 @@ export type Database = {
             columns: ["authorId"]
             isOneToOne: false
             referencedRelation: "users"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      quizes: {
+        Row: {
+          id: number
+          lsId: string
+          name: string | null
+        }
+        Insert: {
+          id?: number
+          lsId: string
+          name?: string | null
+        }
+        Update: {
+          id?: number
+          lsId?: string
+          name?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "public_quizes_lsId_fkey"
+            columns: ["lsId"]
+            isOneToOne: false
+            referencedRelation: "learning_sessions"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      quizes_answers: {
+        Row: {
+          answer: string
+          correct: boolean
+          id: number
+          qId: number | null
+        }
+        Insert: {
+          answer: string
+          correct: boolean
+          id?: number
+          qId?: number | null
+        }
+        Update: {
+          answer?: string
+          correct?: boolean
+          id?: number
+          qId?: number | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "public_quizes_answers_qId_fkey"
+            columns: ["qId"]
+            isOneToOne: false
+            referencedRelation: "quizes_questions"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      quizes_questions: {
+        Row: {
+          id: number
+          question: string
+          quizId: number
+        }
+        Insert: {
+          id?: number
+          question: string
+          quizId: number
+        }
+        Update: {
+          id?: number
+          question?: string
+          quizId?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "public_quizes_questions_quizId_fkey"
+            columns: ["quizId"]
+            isOneToOne: false
+            referencedRelation: "quizes"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      scrapping_images: {
+        Row: {
+          createdAt: string
+          id: number
+          imageUrl: string
+          lsId: string | null
+          pageUrl: string
+        }
+        Insert: {
+          createdAt?: string
+          id?: number
+          imageUrl: string
+          lsId?: string | null
+          pageUrl: string
+        }
+        Update: {
+          createdAt?: string
+          id?: number
+          imageUrl?: string
+          lsId?: string | null
+          pageUrl?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "public_scrapping_images_lsId_fkey"
+            columns: ["lsId"]
+            isOneToOne: false
+            referencedRelation: "learning_sessions"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      scrapping_text: {
+        Row: {
+          createdAt: string
+          id: number
+          lsId: string | null
+          pageUrl: string
+          scrappedContent: string
+        }
+        Insert: {
+          createdAt?: string
+          id?: number
+          lsId?: string | null
+          pageUrl: string
+          scrappedContent: string
+        }
+        Update: {
+          createdAt?: string
+          id?: number
+          lsId?: string | null
+          pageUrl?: string
+          scrappedContent?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "public_scrapping_text_lsId_fkey"
+            columns: ["lsId"]
+            isOneToOne: false
+            referencedRelation: "learning_sessions"
             referencedColumns: ["id"]
           },
         ]

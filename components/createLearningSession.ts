@@ -1,13 +1,18 @@
 "use server"
 
 import { createClient } from "@/utils/supabase/server"
+import { da } from "@faker-js/faker"
 import { redirect } from "next/navigation"
-import { fakerPL } from '@faker-js/faker'
-import { createSuperClient } from "@/utils/supabase/super"
+// import { fakerPL } from '@faker-js/faker'
+// import { createSuperClient } from "@/utils/supabase/super"
 
-export async﻿ function createLearningSession(formData: FormData) {
-  if (!formData.get("sessionTopic")) {
-    throw new Error("You need to provide a topic")
+// api urk
+
+export async function createLearningSession(formData: FormData) {
+  const prompt = formData.get("prompt")
+
+  if (!prompt) {
+    throw new Error("You need to provide a prompt")
   }
 
   const supabase = createClient()
@@ -15,29 +20,17 @@ export async﻿ function createLearningSession(formData: FormData) {
   const { data, error } = await supabase
     .from("learning_sessions")
     .insert({
-      prompt: formData.get("prompt")!.toString(),
+      prompt: prompt.toString(),
     })
     .select("id")
     .single()
 
   if (!data) throw error
 
-  // fake chapter generation
-  for (let i = 0; i < 5; i++) {
-    const {error} = await createSuperClient()
-      .from("learning_chapters")
-      .insert({
-        lsId: data.id,
-        title: fakerPL.lorem.sentence(),
-        content: fakerPL.lorem.paragraphs(5),
-        // learning_session_id: data.id,
-      })
-      .single()
-
-      if (error) console.error(error)
-  }
+  // create a quiz prompt
+  await fetch("https://badly-corp-jump-sampling.trycloudflare.com/prompt?id=" + data.id)
 
   redirect(`/you/${data.id}`)
 
-  return data
+  // return data
 }
